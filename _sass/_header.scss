@@ -1,0 +1,122 @@
+/**
+ * Site header
+ */
+.site-header {
+  // min-height: $spacing-unit * 1.865;
+  margin-bottom: 2rem;
+  border-top: 8px solid $brand-color;
+}
+
+.site-nav {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 273px;
+  line-height: $base-line-height * $base-font-size * 1.25;
+  align-items: flex-start;
+  .site-title {
+    @include relative-font-size(2);
+    text-decoration: none;
+    font-weight: 300;
+    line-height: $base-line-height * $base-font-size * 2.25;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+
+    &,
+    &:visited {
+      color: $grey-color-dark;
+    }
+  }
+
+  .nav-trigger {
+    display: none;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+  .navs {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 200px;
+    .nav-link {
+      display: block;
+      padding: 0.25rem 1rem;
+      color: $brand-color;
+      text-decoration: none;
+      line-height: $base-line-height;
+      margin-bottom: 8px;
+      &:visited {
+        background-color: $background-color;
+        border: 1px solid $brand-color;
+      }
+      &:hover,
+      &.active {
+        background-color: $background-color;
+        border: 1px solid $brand-color;
+        box-shadow: 8px 8px 0px -2px $brand-color;
+      }
+      &:active {
+        box-shadow: 8px 8px 0px 0px $brand-color;
+      }
+    }
+  }
+
+  @include media-query($on-mob) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-light;
+    border-radius: 5px;
+    text-align: right;
+
+    label[for="nav-trigger"] {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 36px;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+
+      > svg {
+        fill: $grey-color-dark;
+      }
+    }
+
+    input ~ .trigger {
+      clear: both;
+      display: none;
+    }
+
+    input:checked ~ .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}

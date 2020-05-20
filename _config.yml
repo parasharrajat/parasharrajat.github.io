@@ -12,3 +12,17 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-admin
+
+exclude:
+  - vender
+  - .bundle
+
+header_pages:
+  - title: Posts
+    url: /index.html
+
+  - title: Social
+    url: /social.html
+
+  - title: About
+    url: /about.html
