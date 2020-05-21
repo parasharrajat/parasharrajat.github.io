@@ -1,18 +1,32 @@
-
 /**
  * Posts
  */
- .post-header {
+.post-header {
   margin-bottom: $spacing-unit;
 }
 
 .post-title {
   @include relative-font-size(2.625);
   letter-spacing: -1px;
-  line-height: 1;
 
   @include media-query($on-laptop) {
     @include relative-font-size(2.25);
+  }
+}
+.single-post {
+  .post-header {
+    border-bottom: 4px solid $brand-color;
+  }
+
+  .post-title {
+    font-variant: all-small-caps;
+  }
+  .post-meta {
+    margin-bottom: 1rem;
+    display: flex;
+    time {
+      margin-left: auto;
+    }
   }
 }
 
@@ -41,5 +55,49 @@
     @include media-query($on-laptop) {
       @include relative-font-size(1.125);
     }
+  }
+}
+.all-tags {
+  margin-bottom: 2rem;
+  a {
+    margin-bottom: 1rem;
+  }
+  a:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
+
+.tag-link {
+  color: $text-color;
+  position: relative;
+  margin-top: 4rem;
+  &:hover,
+  &:active {
+    color: $brand-color;
+  }
+  &:visited {
+    color: $text-color;
+  }
+  &:before {
+    content: "\00b6";
+    position: absolute;
+    @include relative-font-size(2);
+    left: -$spacing-unit;
+    line-height: 1;
+  }
+}
+.tag-post {
+  .card-body {
+    display: flex;
+    align-items: center;
+  }
+  .post-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1 1 auto;
+    margin: 0;
+  }
+  .post-meta {
+    margin: 0 !important;
   }
 }

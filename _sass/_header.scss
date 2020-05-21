@@ -5,29 +5,38 @@
   // min-height: $spacing-unit * 1.865;
   margin-bottom: 2rem;
   border-top: 8px solid $brand-color;
+  padding-top: 5rem;
+  text-align: center;
+}
+.site-title {
+  @include relative-font-size(4);
+  font-family: "LCD Solid";
+  text-decoration: none !important;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  line-height: $base-line-height * $base-font-size * 2.25;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+
+  &,
+  &:visited {
+    color: $grey-color-dark;
+  }
+  &:after {
+    content: ".blog";
+    @include relative-font-size(1.4);
+    color: $brand-color;
+    vertical-align: baseline;
+  }
 }
 
 .site-nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: left;
-  max-width: 273px;
   line-height: $base-line-height * $base-font-size * 1.25;
-  align-items: flex-start;
-  .site-title {
-    @include relative-font-size(2);
-    text-decoration: none;
-    font-weight: 300;
-    line-height: $base-line-height * $base-font-size * 2.25;
-    letter-spacing: -1px;
-    margin-bottom: 1rem;
-
-    &,
-    &:visited {
-      color: $grey-color-dark;
-    }
-  }
-
+  justify-content: center;
   .nav-trigger {
     display: none;
   }
@@ -37,20 +46,22 @@
   }
   .navs {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     list-style: none;
     padding: 0;
     margin: 0;
-    margin-bottom: 1rem;
-    width: 100%;
-    max-width: 200px;
+    > li:not(:last-child) {
+      margin-right: 1rem;
+    }
     .nav-link {
-      display: block;
+      display: inline-block;
       padding: 0.25rem 1rem;
       color: $brand-color;
       text-decoration: none;
       line-height: $base-line-height;
       margin-bottom: 8px;
+      border: 1px solid transparent;
+
       &:visited {
         background-color: $background-color;
         border: 1px solid $brand-color;
@@ -60,6 +71,7 @@
         background-color: $background-color;
         border: 1px solid $brand-color;
         box-shadow: 8px 8px 0px -2px $brand-color;
+        color: $text-color;
       }
       &:active {
         box-shadow: 8px 8px 0px 0px $brand-color;

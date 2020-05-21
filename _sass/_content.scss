@@ -1,18 +1,26 @@
-
 /**
  * Page content
  */
- .page-content {
-  padding: $spacing-unit 0;
-  flex: 1;
+.page-content {
+  padding: $spacing-unit 0 $spacing-unit * 2.25;
 }
 
 .page-heading {
   @include relative-font-size(2);
+  line-height: $base-line-height * $base-font-size * 2.25;
 }
 
 .post-list-heading {
   @include relative-font-size(1.75);
+}
+
+.card {
+  border: 1px solid $brand-color;
+  box-shadow: 8px 8px 0px -2px $brand-color;
+  display: block;
+  .card-body {
+    padding: 1rem;
+  }
 }
 
 .post-list {
@@ -22,14 +30,38 @@
   > li {
     margin-bottom: $spacing-unit;
   }
-}
+  .post {
+    color: $text-color;
+    text-decoration: none;
+    .post-meta {
+      font-size: $small-font-size;
+      color: $grey-color;
+    }
+    .post-meta:last-of-type {
+      margin-bottom: 0.5rem;
+    }
+    .post-title {
+      color: $brand-color;
 
-.post-meta {
-  font-size: $small-font-size;
-  color: $grey-color;
-}
+      @include relative-font-size(1.5);
+    }
 
-.post-link {
-  display: block;
-  @include relative-font-size(1.5);
+    &:hover .post-title {
+      // text-decoration: underline;
+      color: $text-color;
+    }
+  }
+}
+.pagination {
+  display: flex;
+  font-weight: 300;
+  @include relative-font-size(1.2);
+  align-items: center;
+  justify-content: space-between;
+  line-height: $base-line-height * $base-font-size * 3.5;
+
+  .nav {
+    @include relative-font-size(1.5);
+    font-weight: bold;
+  }
 }

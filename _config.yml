@@ -1,12 +1,14 @@
-title: Coder Steps
+title: Rajat Parashar
 email: ''
 description: >-
   This is Rajat Parashar's personal blog. Here I throw crap out of my mind. You
   may find this crap useful.
 baseurl: /
 url: codersteps.com
-twitter_username: '@_rajat_parashar'
+twitter_username: '_rajat_parashar'
 github_username: parasharrajat
+facebook_username: rajat47hitman
+linkedin_username: rajatparashar47
 markdown: kramdown
 theme: minima
 plugins:
@@ -19,10 +21,8 @@ exclude:
 
 header_pages:
   - title: Posts
-    url: /index.html
+    url: /
 
-  - title: Social
-    url: /social.html
 
-  - title: About
-    url: /about.html
+paginate: 2
+paginate_path: "page:num/"
