@@ -7,6 +7,9 @@
   border-top: 8px solid $brand-color;
   padding-top: 5rem;
   text-align: center;
+  @include media-query($on-mob) {
+    margin-bottom: 0;
+  }
 }
 .site-title {
   @include relative-font-size(4);
@@ -18,7 +21,7 @@
   line-height: $base-line-height * $base-font-size * 2.25;
   letter-spacing: -1px;
   margin-bottom: 1rem;
-
+  width: 100%;
   &,
   &:visited {
     color: $grey-color-dark;
@@ -29,21 +32,56 @@
     color: $brand-color;
     vertical-align: baseline;
   }
+  @include media-query($on-mob) {
+    @include relative-font-size(3);
+  }
 }
+.menu-button {
+  display: none;
+  position: fixed;
+  top: 5vh;
+  left: 5vw;
+  z-index: 99;
 
+  label[for="nav-trigger"] {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    display: block;
+    width: 36px;
+    font-size: 36px;
+    height: 26px;
+    line-height: 0;
+    padding-top: 10px;
+    text-align: center;
+    display: none;
+    &.open {
+      display: block;
+    }
+  }
+
+  @include media-query($on-mob) {
+    display: block;
+  }
+}
+.menu-checkbox {
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+}
 .site-nav {
   display: flex;
   flex-direction: row;
   text-align: left;
   line-height: $base-line-height * $base-font-size * 1.25;
   justify-content: center;
-  .nav-trigger {
+
+  .bg-blur {
     display: none;
   }
 
-  .menu-icon {
-    display: none;
-  }
   .navs {
     display: flex;
     flex-direction: row;
@@ -80,55 +118,122 @@
   }
 
   @include media-query($on-mob) {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.18s ease;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 90;
+    background-color: transparent;
+    border-top: 8px solid $brand-color;
+    padding-top: 30vh;
+    display: block;
+    overflow: hidden;
+    overflow-y: auto;
+    .bg-blur {
+      display: block;
+      width: calc(100% + 100px * 2);
+      height: 100%;
+      position: absolute;
+      left: -100px;
+      top: 0px;
+      background-color: rgba($color: $background-color, $alpha: 0.99);
+      filter: blur(22px);
+      z-index: -1;
+    }
+    .navs {
+      flex-direction: column;
+      width: 80%;
+      margin: auto;
+      margin-bottom: 2rem;
+      .nav-link {
+        display: block;
+        text-align: center;
+        background-color: $background-color;
+        border: 1px solid $brand-color;
+        box-shadow: 8px 8px 0px -2px $brand-color;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+.side-layout {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+
+  .social-media-list {
     position: absolute;
-    top: 9px;
-    right: $spacing-unit / 2;
-    background-color: $background-color;
-    border: 1px solid $grey-color-light;
-    border-radius: 5px;
-    text-align: right;
-
-    label[for="nav-trigger"] {
-      display: block;
-      float: right;
-      width: 36px;
-      height: 36px;
-      z-index: 2;
-      cursor: pointer;
+    width: auto;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      @include relative-font-size(2);
+    }
+    a.social-link {
+      display: inline-block;
+      line-height: 1;
+    }
+    .username {
+      &:before {
+        content: "@";
+        margin-right: 5px;
+      }
+      text-decoration: none !important;
+      position: absolute;
+      top: 0;
+      right: 0;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.18s ease;
     }
 
-    .menu-icon {
-      display: block;
-      float: right;
-      width: 36px;
-      height: 26px;
-      line-height: 0;
-      padding-top: 10px;
-      text-align: center;
+    // ui adjusting
+    padding-top: 1.5rem;
 
-      > svg {
-        fill: $grey-color-dark;
+    a.social-link:hover {
+      .username {
+        visibility: visible;
+        opacity: 1;
       }
     }
+  }
+  @include media-query($on-mob) {
+    position: static;
+    height: auto;
 
-    input ~ .trigger {
-      clear: both;
-      display: none;
+    .social-media-list {
+      position: static;
+      transform: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 15px;
+      justify-content: center;
     }
-
-    input:checked ~ .trigger {
-      display: block;
-      padding-bottom: 5px;
+    .social-media-list li + li {
+      padding-top: 0;
+      padding-left: 5px;
     }
+  }
+}
 
-    .page-link {
-      display: block;
-      padding: 5px 10px;
-
-      &:not(:last-child) {
-        margin-right: 0;
-      }
-      margin-left: 20px;
-    }
+@include media-query($on-mob) {
+  .menu-checkbox:checked ~ .site-nav {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .menu-checkbox:checked ~ .menu-button .menu-icon.open {
+    display: none;
+  }
+  .menu-checkbox:checked ~ .menu-button .menu-icon.close {
+    display: block;
   }
 }
