@@ -1,6 +1,6 @@
 ---
 title: My First Post
-tags: [Featured,Post,love]
+tags: [Featured]
 ---
 
 Hey **Everyone**,
