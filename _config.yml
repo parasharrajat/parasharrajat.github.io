@@ -4,7 +4,7 @@ description: >-
   This is Rajat Parashar's personal blog. Here I throw crap out of my mind. You
   may find this crap useful.
 baseurl: /
-url: codersteps.com
+url: https://parasharrajat.github.io
 twitter_username: '_rajat_parashar'
 github_username: parasharrajat
 facebook_username: rajat47hitman
@@ -16,7 +16,7 @@ plugins:
   - jekyll-admin
 
 exclude:
-  - vender
+  - vendor
   - .bundle
 
 header_pages:

@@ -12,28 +12,57 @@
   }
 }
 .site-title {
-  @include relative-font-size(4);
-  font-family: "LCD Solid";
-  text-decoration: none !important;
-  display: inline-block;
-  margin-bottom: 1rem;
-  font-weight: 300;
-  line-height: $base-line-height * $base-font-size * 2.25;
-  letter-spacing: -1px;
-  margin-bottom: 1rem;
-  width: 100%;
-  &,
-  &:visited {
-    color: $grey-color-dark;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .content {
+    display: flex;
+    align-items: center;
   }
-  &:after {
-    content: ".blog";
-    @include relative-font-size(1.4);
-    color: $brand-color;
-    vertical-align: baseline;
+  .avatar {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    flex: 1 0 auto;
+    margin-right: 1.5rem;
+    overflow: hidden;
+  }
+
+  .logo {
+    @include relative-font-size(3);
+    font-family: "LCD Solid";
+    text-decoration: none !important;
+    display: inline-block;
+    font-weight: 300;
+    line-height: $base-line-height * $base-font-size * 2.25;
+    letter-spacing: -1px;
+    width: 100%;
+    text-align: left;
+    &,
+    &:visited {
+      color: $grey-color-dark;
+    }
+    &:after {
+      content: ".blog";
+      @include relative-font-size(1.4);
+      color: $brand-color;
+      vertical-align: baseline;
+    }
   }
   @include media-query($on-mob) {
-    @include relative-font-size(3);
+    .logo{
+      @include relative-font-size(1.5);
+       line-height: $base-line-height * $base-font-size * 1.5;
+      &:after {
+        @include relative-font-size(0.7);
+      }
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 .menu-button {
