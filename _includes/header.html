@@ -4,7 +4,7 @@
       <div class="avatar">
         <img src="/assets/IMG-20191019-WA0005-01-01.jpeg" alt="Rajat Parashar">
       </div>
-      <a class="logo" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+      <a class="logo" rel="author" href="{{ " /" | relative_url }}">{{ site.title | escape }}</a>
     </div>
   </div>
   <input type="checkbox" id="nav-trigger" class="menu-checkbox" name="menu-checkbox" />
@@ -24,6 +24,9 @@
     {%- if page_paths -%}
 
     <ul class="navs">
+      <li>
+        <a class="nav-link bold" href="{{ site.resume | escape }}">Resumé</a>
+      </li>
       {%- for my_page in page_paths -%}
       {%- if my_page.title -%}
       <li>

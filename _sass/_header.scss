@@ -140,6 +140,12 @@
         box-shadow: 8px 8px 0px -2px $brand-color;
         color: $text-color;
       }
+      &.bold {
+        background-color: $background-color;
+        border: 1px solid $bold-color;
+        box-shadow: 8px 8px 0px -2px $bold-color;
+        color: $text-color;
+      }
       &:active {
         box-shadow: 8px 8px 0px 0px $brand-color;
       }
